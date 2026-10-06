@@ -1,0 +1,6 @@
+{
+  "name": "Satori - Anime, Manga & Novel",
+  "description": "Streaming and reading platform for Anime, Manga, and Light Novels with real-time tracking and custom player.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

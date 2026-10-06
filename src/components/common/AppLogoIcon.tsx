@@ -1,0 +1,52 @@
+import React from 'react';
+
+export const SATORI_LOGO_D = "M2870 4220 c47 -9 248 -101 322 -148 15 -9 82 -51 148 -92 67 -41 132 -82 145 -90 13 -8 67 -42 120 -75 53 -33 109 -68 123 -77 15 -10 34 -21 42 -25 13 -6 48 -29 176 -117 102 -71 205 -183 219 -239 4 -14 2 -35 -5 -47 -9 -17 -19 -20 -48 -18 -30 3 -41 11 -71 54 -39 55 -116 125 -196 178 -90 59 -189 122 -278 177 -48 30 -98 61 -112 69 -63 40 -162 102 -180 113 -11 6 -38 23 -60 37 -22 14 -47 29 -55 33 -8 4 -42 23 -75 42 -244 143 -357 152 -570 48 -41 -20 -256 -147 -361 -213 -13 -8 -74 -46 -136 -84 -62 -38 -120 -75 -128 -81 -8 -7 -31 -21 -50 -32 -19 -10 -68 -41 -108 -68 -40 -28 -81 -55 -91 -60 -41 -24 -142 -119 -170 -161 -74 -112 -93 -291 -90 -854 2 -508 24 -735 82 -859 27 -59 119 -151 177 -178 84 -39 102 -44 234 -63 121 -18 187 -20 881 -20 685 0 761 2 880 19 190 28 260 56 334 132 130 134 161 299 161 860 l0 357 25 16 c32 21 47 20 73 -4 22 -20 22 -25 22 -303 0 -376 -18 -628 -54 -753 -29 -105 -76 -186 -145 -254 -79 -76 -146 -113 -266 -144 -143 -37 -250 -41 -1045 -41 -835 0 -909 4 -1055 55 -33 12 -70 24 -82 27 -12 3 -28 11 -34 19 -6 8 -17 14 -23 14 -16 0 -107 87 -142 135 -54 74 -83 150 -111 290 -16 81 -18 152 -18 730 0 688 -1 672 52 800 51 122 175 240 393 374 72 44 322 200 370 230 269 171 486 284 565 294 63 8 164 7 215 -3z  m-501 -2009 c50 -36 165 -88 233 -106 53 -14 91 -16 185 -12 141 6 191 22 359 118 39 22 43 22 66 7 61 -40 24 -98 -100 -158 -37 -18 -75 -37 -84 -41 -40 -20 -204 -49 -277 -49 -196 0 -481 121 -481 203 0 24 32 55 58 56 8 1 26 -8 41 -18z";
+
+interface AppLogoIconProps {
+  className?: string;
+  size?: number | string;
+  color?: string;
+  glow?: boolean;
+  strokeWidth?: number | string;
+  strokeColor?: string;
+}
+
+export const AppLogoIcon: React.FC<AppLogoIconProps> = ({
+  className = '',
+  size = 28,
+  color = 'currentColor',
+  glow = false,
+  strokeWidth = 0.5,
+  strokeColor,
+}) => {
+  const stroke = strokeColor || color;
+  const numStrokeWidth = typeof strokeWidth === 'string' ? parseFloat(strokeWidth) : strokeWidth;
+
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="110 110 332 332"
+      fill="none"
+      className={className}
+      style={{
+        filter: glow ? 'drop-shadow(0 0 8px rgba(168, 85, 247, 0.85))' : 'none',
+      }}
+    >
+      <g transform="translate(0, 552) scale(0.1, -0.1)" fill={color}>
+        <path
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d={SATORI_LOGO_D}
+          stroke={numStrokeWidth > 0 ? stroke : undefined}
+          strokeWidth={numStrokeWidth > 0 ? strokeWidth : undefined}
+          vectorEffect={numStrokeWidth > 0 ? 'non-scaling-stroke' : undefined}
+          strokeLinejoin="round"
+          strokeLinecap="round"
+          style={numStrokeWidth > 0 ? { vectorEffect: 'non-scaling-stroke' } : undefined}
+        />
+      </g>
+    </svg>
+  );
+};
